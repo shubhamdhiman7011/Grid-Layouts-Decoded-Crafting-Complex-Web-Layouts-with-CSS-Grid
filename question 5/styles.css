@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(14, 40px);
+    grid-gap: 5px;
+}
+
+.key {
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.key:active {
+    background-color: #555;
+}
+
+.wide {
+    grid-column: span 2;
+}
+
+.extra-wide {
+    grid-column: span 5;
+}
+
