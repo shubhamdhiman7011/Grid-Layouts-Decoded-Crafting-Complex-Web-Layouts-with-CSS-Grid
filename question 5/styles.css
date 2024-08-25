@@ -1,32 +1,73 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f4;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input#inputField {
+    width: 80%;
+    max-width: 600px;
+    padding: 10px;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 2px solid #333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .keyboard {
     display: grid;
     grid-template-columns: repeat(14, 40px);
     grid-gap: 5px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .key {
-    background-color: #333;
+    background: linear-gradient(145deg, #444, #222);
     color: white;
     border-radius: 5px;
     text-align: center;
     line-height: 40px;
     font-size: 1em;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.key::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateX(-50%) translateY(-75%) rotate(45deg);
+    transition: all 0.5s ease;
+}
+
+.key:hover::before {
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+}
+
+.key:hover {
+    background: linear-gradient(145deg, #666, #444);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
 }
 
 .key:active {
     background-color: #555;
+    transform: scale(0.95);
 }
 
 .wide {
@@ -37,3 +78,7 @@ body {
     grid-column: span 5;
 }
 
+.key.active {
+    background: linear-gradient(145deg, #888, #555);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
